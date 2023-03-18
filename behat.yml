@@ -5,7 +5,7 @@ default:
         pretty: ~
 
     extensions:
-        emuse\BehatHTMLFormatter\BehatHTMLFormatterExtension:
+        webship\BehatHTMLFormatter\BehatHTMLFormatterExtension:
             name: html
             renderer: Twig
             file_name: index

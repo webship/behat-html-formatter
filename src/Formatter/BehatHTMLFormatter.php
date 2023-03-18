@@ -1,6 +1,6 @@
 <?php
 
-namespace emuse\BehatHTMLFormatter\Formatter;
+namespace webship\BehatHTMLFormatter\Formatter;
 
 use Behat\Behat\EventDispatcher\Event\AfterFeatureTested;
 use Behat\Behat\EventDispatcher\Event\AfterOutlineTested;
@@ -20,12 +20,12 @@ use Behat\Testwork\EventDispatcher\Event\BeforeExerciseCompleted;
 use Behat\Testwork\EventDispatcher\Event\BeforeSuiteTested;
 use Behat\Testwork\Output\Formatter;
 use Behat\Testwork\Output\Printer\OutputPrinter;
-use emuse\BehatHTMLFormatter\Classes\Feature;
-use emuse\BehatHTMLFormatter\Classes\Scenario;
-use emuse\BehatHTMLFormatter\Classes\Step;
-use emuse\BehatHTMLFormatter\Classes\Suite;
-use emuse\BehatHTMLFormatter\Printer\FileOutputPrinter;
-use emuse\BehatHTMLFormatter\Renderer\BaseRenderer;
+use webship\BehatHTMLFormatter\Classes\Feature;
+use webship\BehatHTMLFormatter\Classes\Scenario;
+use webship\BehatHTMLFormatter\Classes\Step;
+use webship\BehatHTMLFormatter\Classes\Suite;
+use webship\BehatHTMLFormatter\Printer\FileOutputPrinter;
+use webship\BehatHTMLFormatter\Renderer\BaseRenderer;
 
 /**
  * Class BehatHTMLFormatter.

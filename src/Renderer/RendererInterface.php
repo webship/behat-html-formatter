@@ -1,6 +1,6 @@
 <?php
 
-namespace emuse\BehatHTMLFormatter\Renderer;
+namespace webship\BehatHTMLFormatter\Renderer;
 
 interface RendererInterface
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace emuse\BehatHTMLFormatter\Renderer;
+namespace webship\BehatHTMLFormatter\Renderer;
 
-use emuse\BehatHTMLFormatter\Formatter\BehatHTMLFormatter;
+use webship\BehatHTMLFormatter\Formatter\BehatHTMLFormatter;
 use Twig_Environment;
 use Twig_Loader_Filesystem;
 

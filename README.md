@@ -1,17 +1,6 @@
 ## BehatHtmlFormatterPlugin
 
-Behat 3 extension for generating HTML reports from your test results.
-
-[![Latest Stable Version](https://poser.pugx.org/emuse/behat-html-formatter/v/stable)](https://packagist.org/packages/emuse/behat-html-formatter) [![Total Downloads](https://poser.pugx.org/emuse/behat-html-formatter/downloads)](https://packagist.org/packages/emuse/behat-html-formatter) [![Latest Unstable Version](https://poser.pugx.org/emuse/behat-html-formatter/v/unstable)](https://packagist.org/packages/emuse/behat-html-formatter) [![License](https://poser.pugx.org/emuse/behat-html-formatter/license)](https://packagist.org/packages/emuse/behat-html-formatter)
-
-### Twig report
-
-![Twig Screenshot](http://i.imgur.com/o0zCqiB.png)
-
-### Behat 2 report
-
-![Behat2 Screenshot](http://i57.tinypic.com/287g942.jpg)
-
+Behat 4 extension for generating HTML reports from your test results.
 
 ## How?
 
@@ -25,8 +14,8 @@ Behat 3 extension for generating HTML reports from your test results.
 
 This extension requires:
 
-* PHP 5.3.x or higher
-* Behat 3.x or higher
+* PHP 7.4.x or higher
+* Behat 4.x or higher
 
 ### Through composer
 
@@ -35,7 +24,7 @@ The easiest way to keep your suite updated is to use [Composer](http://getcompos
 #### Install with composer:
 
 ```bash
-$ composer require --dev emuse/behat-html-formatter
+$ composer require --dev webship/behat-html-formatter
 ```
 
 #### Install using `composer.json`
@@ -45,8 +34,8 @@ Add BehatHtmlFormatterPlugin to the list of dependencies inside your `composer.j
 ```json
 {
     "require": {
-        "behat/behat": "3.*@stable",
-        "emuse/behat-html-formatter": "0.1.*",
+        "behat/behat": "~4.0",
+        "webship/behat-html-formatter": "~1.0",
     },
     "minimum-stability": "dev",
     "config": {
@@ -73,7 +62,7 @@ default:
   suites:
     default:
        contexts:
-          - emuse\BehatHTMLFormatter\Context\ScreenshotContext:
+          - webship\BehatHTMLFormatter\Context\ScreenshotContext:
                screenshotDir: build/html/behat/assets/screenshots
     ... # All your awesome suites come here
   formatters:
@@ -81,7 +70,7 @@ default:
       output_path: %paths.base%/build/html/behat
 
   extensions:
-    emuse\BehatHTMLFormatter\BehatHTMLFormatterExtension:
+    webship\BehatHTMLFormatter\BehatHTMLFormatterExtension:
       name: html
       renderer: Twig,Behat2
       file_name: index
@@ -123,7 +112,7 @@ The facility exists to embed a screenshot into test failures.
 
 Currently png is the only supported image format.
 
-In order to embed a screenshot, you will need to take a screenshot using your favourite webdriver and store it in the following filepath format:
+In order to embed a screenshot, you will need to take a screenshot using your favorite webdriver and store it in the following filepath format:
 
 results/html/assets/screenshots/{{feature_name}}/{{scenario_name}}.png
 
@@ -133,45 +122,45 @@ Below is an example of FeatureContext methods which will produce an image file i
 
 ```php
 
-        /**
-         * @BeforeScenario
-         *
-         * @param BeforeScenarioScope $scope
-         *
-         */
-        public function setUpTestEnvironment($scope)
-        {
-            $this->currentScenario = $scope->getScenario();
-        }
+/**
+ * @BeforeScenario
+ *
+ * @param BeforeScenarioScope $scope
+ *
+ */
+public function setUpTestEnvironment($scope)
+{
+    $this->currentScenario = $scope->getScenario();
+}
 
-        /**
-         * @AfterStep
-         *
-         * @param AfterStepScope $scope
-         */
-        public function afterStep($scope)
-        {
-            //if test has failed, and is not an api test, get screenshot
-            if(!$scope->getTestResult()->isPassed())
-            {
-                //create filename string
+/**
+ * @AfterStep
+ *
+ * @param AfterStepScope $scope
+ */
+public function afterStep($scope)
+{
+  //if test has failed, and is not an api test, get screenshot
+  if(!$scope->getTestResult()->isPassed())
+  {
+    //create filename string
 
-               $featureFolder = preg_replace('/\W/', '', $scope->getFeature()->getTitle());
-                  
-                              $scenarioName = $this->currentScenario->getTitle();
-                              $fileName = preg_replace('/\W/', '', $scenarioName) . '.png';
+   $featureFolder = preg_replace('/\W/', '', $scope->getFeature()->getTitle());
+      
+    $scenarioName = $this->currentScenario->getTitle();
+    $fileName = preg_replace('/\W/', '', $scenarioName) . '.png';
 
-                //create screenshots directory if it doesn't exist
-                if (!file_exists('results/html/assets/screenshots/' . $featureFolder)) {
-                    mkdir('results/html/assets/screenshots/' . $featureFolder);
-                }
+    //create screenshots directory if it doesn't exist
+    if (!file_exists('results/html/assets/screenshots/' . $featureFolder)) {
+        mkdir('results/html/assets/screenshots/' . $featureFolder);
+    }
 
-                //take screenshot and save as the previously defined filename
-                $this->driver->takeScreenshot('results/html/assets/screenshots/' . $featureFolder . '/' . $fileName);
-                // For Selenium2 Driver you can use:
-                // file_put_contents('results/html/assets/screenshots/' . $featureFolder . '/' . $fileName, $this->getSession()->getDriver()->getScreenshot());
-            }
-        }
+    //take screenshot and save as the previously defined filename
+    $this->driver->takeScreenshot('results/html/assets/screenshots/' . $featureFolder . '/' . $fileName);
+    // For Selenium2 Driver you can use:
+    // file_put_contents('results/html/assets/screenshots/' . $featureFolder . '/' . $fileName, $this->getSession()->getDriver()->getScreenshot());
+  }
+}
 
 ```
 
@@ -179,10 +168,10 @@ Note that the currentScenario variable will need to be at class level and genera
 
 ## Issue Submission
 
-When you need additional support or you discover something *strange*, feel free to [Create a new issue](https://github.com/dutchiexl/BehatHtmlFormatterPlugin/issues/new).
+When you need additional support or you discover something *strange*, feel free to [Create a new issue](https://github.com/webship/behat-html-formatter).
 
 ## License and Authors
 
-Authors: https://github.com/dutchiexl/BehatHtmlFormatterPlugin/contributors
+Authors: https://github.com/webship
 
 

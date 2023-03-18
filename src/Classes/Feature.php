@@ -1,6 +1,6 @@
 <?php
 
-namespace emuse\BehatHTMLFormatter\Classes;
+namespace webship\BehatHTMLFormatter\Classes;
 
 class Feature
 {

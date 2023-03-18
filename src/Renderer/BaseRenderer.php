@@ -1,11 +1,9 @@
 <?php
 /**
  * Base renderer for Behat report.
- *
- * @author DaSayan <glennwall@free.fr>
  */
 
-namespace emuse\BehatHTMLFormatter\Renderer;
+namespace webship\BehatHTMLFormatter\Renderer;
 
 class BaseRenderer
 {

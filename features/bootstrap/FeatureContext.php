@@ -2,7 +2,7 @@
 
 /*
  * This file is part of the Behat.
- * (c) Konstantin Kudryashov <ever.zet@gmail.com>
+ * (c) Webship <info@webship.co>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -17,8 +17,6 @@ use Behat\Behat\Context\SnippetAcceptingContext;
 
 /**
  * Behat test suite context.
- *
- * @author Konstantin Kudryashov <ever.zet@gmail.com>
  */
 class FeatureContext implements Context, SnippetAcceptingContext
 {
