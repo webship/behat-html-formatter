@@ -35,8 +35,8 @@ class TwigRenderer
     public function renderAfterExercise(BehatHTMLFormatter $obj)
     {
         $templatePath = dirname(__FILE__).'/../../templates';
-        $loader = new Twig_Loader_Filesystem($templatePath);
-        $twig = new Twig_Environment($loader, array());
+        $loader = new \Twig\Loader\FilesystemLoader($templatePath);
+        $twig = new \Twig\Environment($loader, array());
         $print = $twig->render('index.html.twig',
             array(
                 'suites' => $obj->getSuites(),
