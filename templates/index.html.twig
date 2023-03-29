@@ -28,18 +28,19 @@
 <nav class="navbar navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
         <a class="nav-link text-white" href="#">Automated test report - {{ "now"|date('d/m/Y H:i:s') }}</a>
-        <div id="navbarToggleExternalContent" class="collapse">
-            <div class="bg-dark p-4">
-                <ul class="text-white h4">
-                </ul>
-            </div>
-        </div>
+        
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse"
             data-bs-target="#navbarToggleExternalContent" aria-expanded="false"
             aria-controls="navbarToggleExternalContent">
             <span class="navbar-toggler-icon"></span>
         </button>
         <!--/.nav-collapse -->
+    </div>
+    <div id="navbarToggleExternalContent" class="collapse">
+        <div class="bg-dark p-4">
+            <ul class="text-white h4">
+            </ul>
+        </div>
     </div>
 </nav>
 
@@ -82,7 +83,7 @@
     </div>
     <hr>
     <div class="filters">
-        <a class="btn btn-default" id="feature-all-filter" role="button">All</a>
+        <a class="btn btn-light" id="feature-all-filter" role="button">All</a>
         <a class="btn btn-success" id="feature-passed-filter" role="button">Passed</a>
         <a class="btn btn-danger" id="feature-failed-filter" role="button">Failed</a>
     </div>
