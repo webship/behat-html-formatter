@@ -14,10 +14,10 @@ use Behat\Behat\Tester\Result\ExecutedStepResult;
 use Behat\Behat\Tester\Result\StepResult;
 use Behat\Testwork\Counter\Memory;
 use Behat\Testwork\Counter\Timer;
-use Behat\Testwork\EventDispatcher\Event\AfterExerciseCompleted;
-use Behat\Testwork\EventDispatcher\Event\AfterSuiteTested;
 use Behat\Testwork\EventDispatcher\Event\BeforeExerciseCompleted;
 use Behat\Testwork\EventDispatcher\Event\BeforeSuiteTested;
+use Behat\Testwork\EventDispatcher\Event\ExerciseCompleted;
+use Behat\Testwork\EventDispatcher\Event\SuiteTested;
 use Behat\Testwork\Output\Formatter;
 use Behat\Testwork\Output\Printer\OutputPrinter;
 use webship\BehatHTMLFormatter\Classes\Feature;
@@ -408,9 +408,9 @@ class BehatHTMLFormatter implements Formatter
     }
 
     /**
-     * @param AfterExerciseCompleted $event
+     * @param ExerciseCompleted $event
      */
-    public function onAfterExercise(AfterExerciseCompleted $event)
+    public function onAfterExercise(ExerciseCompleted $event)
     {
         $this->timer->stop();
 
@@ -431,9 +431,9 @@ class BehatHTMLFormatter implements Formatter
     }
 
     /**
-     * @param AfterSuiteTested $event
+     * @param SuiteTested $event
      */
-    public function onAfterSuiteTested(AfterSuiteTested $event)
+    public function onAfterSuiteTested(SuiteTested $event)
     {
         $this->suites[] = $this->currentSuite;
 
